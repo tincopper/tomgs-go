@@ -1,0 +1,41 @@
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+/*
+    go并发
+    eg：go 函数名( 参数列表 )
+
+    使用 go 关键字创建 goroutine 时，被调用函数的返回值会被忽略。
+    如果需要在 goroutine 中返回数据，请使用后面介绍的通道（channel）特性，通过通道把数据从 goroutine 中作为返回值传出。
+ */
+
+func running() {
+    var times int
+    for {
+       times++
+       fmt.Println("tick ", times)
+       // sleep 1s
+       time.Sleep(time.Second)
+    }
+}
+
+func main() {
+    // 开启并发执行
+    go running()
+
+    // 测试channel
+    UseChannel2()
+
+    // 接受用户输入
+    var input string
+    _, err := fmt.Scanln(&input)
+    if err != nil {
+        fmt.Println("error: ", err)
+    }
+    fmt.Println(input)
+}
+
