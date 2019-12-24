@@ -1,0 +1,1 @@
+{"application":{"panshi-agent.admin_url":"http://panshi-dev.jdy.com/cmdb/agent/register","panshi-agent.bin_bash":"/bin/bash","panshi-agent.bin_dump":"jmap","panshi-agent.dump_dir":"/data/dump","panshi-agent.listen":"0.0.0.0:9099","panshi-agent.log_dir":"/data/log/panshi-agent"}}

@@ -18,3 +18,7 @@ func TestListDir3(t *testing.T) {
 func TestListDir4(t *testing.T) {
     ListDir4()
 }
+
+func TestWriteData(t *testing.T) {
+    WriteData()
+}

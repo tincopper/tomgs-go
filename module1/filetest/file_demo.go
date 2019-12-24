@@ -61,3 +61,12 @@ func ListDir4() {
     fmt.Println(current)
     fmt.Println(unknown)
 }
+
+func WriteData() {
+    file, err := ioutil.ReadFile("F:\\test.txt")
+    if err != nil {
+        fmt.Println(err)
+    }
+    i := len(file)
+    fmt.Println(i)
+}
