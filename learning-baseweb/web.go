@@ -6,8 +6,8 @@ import (
     "os"
     "os/signal"
     "syscall"
-    "tomgs-go/module4/web"
-    "tomgs-go/module4/web/controller"
+    "tomgs-go/learning-baseweb/web"
+    "tomgs-go/learning-baseweb/web/controller"
 )
 
 /**
