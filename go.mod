@@ -1,4 +1,4 @@
-module jdy.com/panshi-agent
+module tomgs-go
 
 require (
 	github.com/coreos/etcd v3.3.13+incompatible // indirect

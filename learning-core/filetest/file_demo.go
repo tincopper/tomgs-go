@@ -26,7 +26,7 @@ func ListDir(path string) {
 }
 
 // 获取当前目录下的文件或目录名(包含路径)
-// E:\go_workspace\src\tomgs-go\module1\filetest\file_demo.go
+// E:\go_workspace\src\tomgs-go\learning-core\filetest\file_demo.go
 func ListDir2() {
     pwd, _ := os.Getwd()
     filepathNames, err := filepath.Glob(filepath.Join(pwd, "*"))

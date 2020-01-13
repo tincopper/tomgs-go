@@ -2,7 +2,11 @@ package main
 
 import (
 	"fmt"
-	"tomgs-go/module1/demo"
+	"os"
+	"os/signal"
+	"syscall"
+	"tomgs-go/learning-core/demo"
+	"tomgs-go/learning-core/timetest"
 )
 
 func main() {
@@ -46,6 +50,10 @@ func main() {
 	demo.MapSimple()
 
 	fmt.Println(demo.Div(1, 0))
+
+	timetest.TimerTest()
+
+	listenSignal()
 }
 
 func baseDemo() {
@@ -89,4 +97,15 @@ func swapInt2(a, b *int) {
 	*a = *b
 	// 将a指针的值赋给b指针指向的变量
 	*b = tmp
+}
+
+func listenSignal() {
+	signals := make(chan os.Signal, 1)
+	signal.Notify(signals, syscall.SIGHUP, syscall.SIGTERM, syscall.SIGINT)
+	for sig := range signals {
+		if sig == nil {
+			continue
+		}
+		os.Exit(0)
+	}
 }

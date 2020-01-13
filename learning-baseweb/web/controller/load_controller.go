@@ -1,6 +1,6 @@
 package controller
 
-import "tomgs-go/module4/web"
+import "tomgs-go/learning-baseweb/web"
 
 func LoadControllers() {
     web.AddRoute("/basic", basicHandler)

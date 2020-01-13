@@ -9,7 +9,7 @@ import (
 )
 
 func Demo1() {
-    a, err := agollo.New("localhost:8080", "panshi-agent-dev", agollo.AutoFetchOnCacheMiss())
+    a, err := agollo.New("172.20.183.155:8080", "panshi-agent-dev", agollo.AutoFetchOnCacheMiss())
     if err != nil {
         panic(err)
     }
@@ -67,7 +67,7 @@ func Demo2() {
     remote.SetAppID("panshi-agent-dev")
     v := viper.New()
     v.SetConfigType("prop")
-    err := v.AddRemoteProvider("apollo", "localhost:8080", "application")
+    err := v.AddRemoteProvider("apollo", "172.20.183.155:8080", "application")
     // error handle...
     err = v.ReadRemoteConfig()
     // error handle...
@@ -76,14 +76,14 @@ func Demo2() {
     }
 
     // 直接反序列化到结构体中
-    var conf DemoConfig
+    /*var conf DemoConfig
     err = v.Unmarshal(&conf)
     // error handle...
     if err != nil {
         fmt.Println(err)
     }
 
-    fmt.Printf("%+v\n", conf)
+    fmt.Printf("%+v\n", conf)*/
 
     // 各种基础类型配置项读取
     fmt.Println("listen:", v.GetString("panshi-agent.listen"))
