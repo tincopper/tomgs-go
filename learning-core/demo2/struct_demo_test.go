@@ -17,3 +17,7 @@ func TestUseMyInt(t *testing.T) {
 func TestUseDelegate(t *testing.T)  {
     UseDelegate()
 }
+
+func TestTestCallback(t *testing.T) {
+    TestCallback()
+}
