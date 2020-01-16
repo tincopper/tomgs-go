@@ -16,7 +16,10 @@ func main() {
     // iris基本用法
     //app := base.IrisBaseMain()
     // iris MVC
-    app := base.IrisMvcMain()
+    //app := base.IrisMvcMain()
+    //iris party
+    app := base.RouteParty()
+    app.Logger().SetLevel("debug")
 
     // 在 Tcp 上监听网络地址 0.0.0.0:8080
     // app.Run(iris.Addr(":8080"))
@@ -39,9 +42,6 @@ func main() {
         // 关闭所有主机
         app.Shutdown(ctx)
     })
-
-    app.Configure()
-    app.ConfigureHost()
     app.Run(iris.Addr(":8080"), iris.WithoutInterruptHandler, iris.WithCharset("UTF-8"))
 
 }
