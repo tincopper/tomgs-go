@@ -31,7 +31,7 @@ type GameService struct {
 
 // 实现Service的Start()方法
 func (g *GameService) Start() {
-    fmt.Println("game service start...")
+    fmt.Println("game services start...")
 }
 
 func UseService()  {
