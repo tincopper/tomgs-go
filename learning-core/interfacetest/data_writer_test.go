@@ -1,4 +1,4 @@
-package interfacetest
+package main
 
 import "testing"
 
