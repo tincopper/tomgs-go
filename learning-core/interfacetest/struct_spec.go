@@ -9,7 +9,7 @@ type Demo struct {
 }
 
 func (d *Demo) Demoer() string {
-    return "123"
+    return d.Name
 }
 
 func SocketDemo() {
@@ -19,8 +19,19 @@ func SocketDemo() {
         var d Dialer
         return d.Dial(network, address)
     }*/
+    // 结构体有默认值，等价于 &TypeName{}
+    // var d net.Dialer == var d = net.Dialer{}
     var d Demo
+    //d.Name = "123456"
     fmt.Println(d.Demoer())
+    
+    var i int
+    fmt.Println(i)
+    
+    var s string
+    fmt.Println(s)
+    i2 := len(s)
+    fmt.Println(i2)
 }
 
 func main() {
