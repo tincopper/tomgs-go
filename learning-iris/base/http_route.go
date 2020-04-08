@@ -46,6 +46,8 @@ var userProfileHandler = func(ctx context.Context) {
 }
 
 var userMessageHandler = func(ctx context.Context) {
+    test := ctx.FormValue("test")
+    fmt.Println("test:" + test)
     method := ctx.Method()
     path := ctx.Path()
     // 获取？后面的参数
