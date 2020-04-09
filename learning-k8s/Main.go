@@ -1,6 +1,7 @@
 package main
 
 import (
+    "context"
     "flag"
     "fmt"
     v1 "k8s.io/api/core/v1"
@@ -55,7 +56,7 @@ func main() {
     
     req.VersionedParams(&v1.PodExecOptions{
         //Container: pod.,
-        Command:   []string{"/bin/sh echo `date`"},
+        Command:   []string{"ps", "-ef", "|", "grep", "java"},
         Stdin:     true,
         Stdout:    true,
         Stderr:    true,
@@ -77,9 +78,8 @@ func main() {
         log.Fatalf("error %s", err)
     }
     
-    
     //
-    req := clientset.CoreV1().RESTClient().Post().
+    /*req := clientset.CoreV1().RESTClient().Post().
         Resource("pods").
         Name(podName).
         Namespace(namespace).
@@ -106,10 +106,10 @@ func main() {
     })
     if err != nil {
         log.Fatalf("error %s", err)
-    }
+    }*/
     // base
     for {
-        pods, err := clientset.CoreV1().Pods("").List(metav1.ListOptions{})
+        pods, err := clientset.CoreV1().Pods("").List(context.TODO(), metav1.ListOptions{})
         if err != nil {
             panic(err.Error())
         }
@@ -120,7 +120,7 @@ func main() {
         // - And/or cast to StatusError and use its properties like e.g. ErrStatus.Message
         namespace := "ns-retail-dev"
         pod := "sentinel-dashboard-555b558fcb-5pm2j"
-        _, err = clientset.CoreV1().Pods(namespace).Get(pod, metav1.GetOptions{})
+        _, err = clientset.CoreV1().Pods(namespace).Get(context.TODO(), pod, metav1.GetOptions{})
         if errors.IsNotFound(err) {
             fmt.Printf("Pod %s in namespace %s not found\n", pod, namespace)
         } else if statusError, isStatus := err.(*errors.StatusError); isStatus {

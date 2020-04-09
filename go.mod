@@ -1,13 +1,16 @@
 module tomgs-go
 
 require (
+	github.com/Azure/go-autorest v11.1.2+incompatible // indirect
 	github.com/Joker/jade v1.0.0 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/aymerick/raymond v2.0.2+incompatible // indirect
 	github.com/coreos/etcd v3.3.13+incompatible // indirect
+	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
 	github.com/donnie4w/go-logger v0.0.0-20170827050443-4740c51383f4
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
+	github.com/elazarl/goproxy v0.0.0-20200315184450-1f3cb6622dad // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
 	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
@@ -41,19 +44,14 @@ require (
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
-	golang.org/x/crypto v0.0.0-20200109152110-61a87790db17 // indirect
 	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553 // indirect
-	gopkg.in/inf.v0 v0.9.1 // indirect
-	k8s.io/api v0.18.0 // indirect
-	k8s.io/apimachinery v0.18.0
-	k8s.io/client-go v11.0.0+incompatible
+	gonum.org/v1/netlib v0.0.0-20190331212654-76723241ea4e // indirect
+	k8s.io/api v0.18.1
+	k8s.io/apimachinery v0.18.1
+	k8s.io/client-go v0.18.1
+	k8s.io/kubectl v0.18.1
 	k8s.io/utils v0.0.0-20200327001022-6496210b90e8 // indirect
-	sigs.k8s.io/yaml v1.2.0 // indirect
-)
-
-replace (
-	k8s.io/api => k8s.io/api v0.0.0-20191004102349-159aefb8556b
-	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20191004074956-c5d2f014d689
+	sigs.k8s.io/structured-merge-diff v0.0.0-20190525122527-15d366b2352e // indirect
 )
 
 go 1.13
