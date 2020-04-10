@@ -7,14 +7,12 @@ import (
     corev1 "k8s.io/api/core/v1"
     "k8s.io/client-go/kubernetes/scheme"
     "k8s.io/client-go/tools/remotecommand"
-    "path/filepath"
-    "strings"
-    
-    //cmdutil "k8s.io/kubernetes/pkg/kubectl/cmd/util"
     cmdutil "k8s.io/kubectl/pkg/cmd/util"
     "log"
     "os"
     "path"
+    "path/filepath"
+    "strings"
 )
 
 type Pod struct {
