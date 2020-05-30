@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-    //web.AddRoute("/demo", demoHandler)
+    //web.AddRoute("/demo-base", demoHandler)
 }
 
 func demoHandler(writer http.ResponseWriter, request *http.Request) {

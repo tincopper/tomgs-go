@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"tomgs-go/learning-core/demo"
+	"tomgs-go/learning-core/demo-base"
 	"tomgs-go/learning-core/timetest"
 )
 
@@ -13,9 +13,9 @@ func main() {
 	// 基础的demo练习
 	baseDemo()
 	// 类型转换
-	demo.TypeConvert()
+	demo_base.TypeConvert()
 	// 指针
-	demo.GoPointer()
+	demo_base.GoPointer()
 
 	// 通过下面两个示例可以说明go也是值传递
 	x, y := 1, 2
@@ -26,16 +26,16 @@ func main() {
 	swapInt2(&x, &y)
 	fmt.Printf("x = %d, y = %d\n", x, y)
 	//
-	command := demo.ParseCommand()
+	command := demo_base.ParseCommand()
 	fmt.Println(command)
 	//
-	intToStr := demo.IntToStr(1)
+	intToStr := demo_base.IntToStr(1)
 	fmt.Printf("%T, %#v\n", intToStr, intToStr)
 
-	strToInt := demo.StrToInt("100")
+	strToInt := demo_base.StrToInt("100")
 	fmt.Printf("%T, %#v\n", strToInt, strToInt)
 
-	//strToInt2 := demo.StrToInt("s100")
+	//strToInt2 := demo-base.StrToInt("s100")
 	//fmt.Printf("%T, %#v\n", strToInt2, strToInt2)
 
 	// 切片 a[1:2] 左闭右开区间，取出的元素数量为：结束位置 - 开始位置；
@@ -47,9 +47,9 @@ func main() {
 	fmt.Println(a, a[0:0])
 	fmt.Println(a, a[:0])
 
-	demo.MapSimple()
+	demo_base.MapSimple()
 
-	fmt.Println(demo.Div(1, 0))
+	fmt.Println(demo_base.Div(1, 0))
 
 	timetest.TimerTest()
 
