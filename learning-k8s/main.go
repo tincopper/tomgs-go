@@ -20,6 +20,8 @@ import (
 )
 
 /**
+* https://github.com/ica10888/client-go-helper/tree/master/pkg/kubectl
+*
 * @Author: tangzy
 * @Date: 2020/4/8 15:50
  */
@@ -44,7 +46,7 @@ func main() {
         panic(err.Error())
     }
     namespace := "ns-retail-dev"
-    podName := "sentinel-dashboard-555b558fcb-5pm2j"
+    podName := "sentinel-dashboard-d6d4dbd6-xqrjz"
     //pod, err := clientset.CoreV1().Pods(namespace).Get(podName, metav1.GetOptions{})
     // exec
     coreclient, err := corev1client.NewForConfig(config)
@@ -56,7 +58,7 @@ func main() {
     
     req.VersionedParams(&v1.PodExecOptions{
         //Container: pod.,
-        Command:   []string{"ps", "-ef", "|", "grep", "java"},
+        Command:   []string{"ps", "-ef", "|", "grep", "sentinel-dashboard"},
         Stdin:     true,
         Stdout:    true,
         Stderr:    true,
@@ -119,7 +121,7 @@ func main() {
         // - Use helper functions like e.g. errors.IsNotFound()
         // - And/or cast to StatusError and use its properties like e.g. ErrStatus.Message
         namespace := "ns-retail-dev"
-        pod := "sentinel-dashboard-555b558fcb-5pm2j"
+        pod := "sentinel-dashboard-d6d4dbd6-xqrjz"
         _, err = clientset.CoreV1().Pods(namespace).Get(context.TODO(), pod, metav1.GetOptions{})
         if errors.IsNotFound(err) {
             fmt.Printf("Pod %s in namespace %s not found\n", pod, namespace)

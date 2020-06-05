@@ -1,10 +1,11 @@
 module tomgs-go
 
 require (
-	github.com/Azure/go-autorest v11.1.2+incompatible // indirect
 	github.com/Joker/jade v1.0.0 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
 	github.com/ajg/form v1.5.1 // indirect
+	github.com/argoproj/argo v2.5.2+incompatible
+	github.com/argoproj/pkg v0.0.0-20200424003221-9b858eff18a1
 	github.com/aymerick/raymond v2.0.2+incompatible // indirect
 	github.com/coreos/etcd v3.3.13+incompatible // indirect
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
@@ -38,6 +39,7 @@ require (
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/shima-park/agollo v1.1.7
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
+	github.com/sirupsen/logrus v1.6.0 // indirect
 	github.com/spf13/viper v1.6.1
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0 // indirect
@@ -45,13 +47,12 @@ require (
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
 	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553 // indirect
-	gonum.org/v1/netlib v0.0.0-20190331212654-76723241ea4e // indirect
+	gopkg.in/yaml.v2 v2.3.0
 	k8s.io/api v0.18.1
 	k8s.io/apimachinery v0.18.1
 	k8s.io/client-go v0.18.1
 	k8s.io/kubectl v0.18.1
 	k8s.io/utils v0.0.0-20200327001022-6496210b90e8 // indirect
-	sigs.k8s.io/structured-merge-diff v0.0.0-20190525122527-15d366b2352e // indirect
 )
 
 go 1.13

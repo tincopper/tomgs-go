@@ -2,6 +2,7 @@ package main
 
 import (
     "fmt"
+    "sync"
     "time"
 )
 
@@ -176,5 +177,11 @@ func closeChannel() {
 }
 
 func main() {
-
+    sm := sync.Map{} // equals to var sm = sync.Map
+    //var sm = sync.Map
+    sm.Store("a", "1")
+    value, ok := sm.Load("a")
+    if ok {
+        fmt.Println(value)
+    }
 }
