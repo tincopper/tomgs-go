@@ -2,7 +2,6 @@ package client
 
 import (
     "flag"
-    "fmt"
     "io"
     "io/ioutil"
     v1 "k8s.io/api/core/v1"
@@ -150,7 +149,7 @@ func Exec(command []string) string {
     // exec
     coreClient, err := corev1client.NewForConfig(config)
     if err != nil {
-        log.Fatalf("NewForConfig err: %v", err)
+        log.Panic("NewForConfig err: ", err)
     }
     
     req := coreClient.RESTClient().Post().
@@ -169,7 +168,7 @@ func Exec(command []string) string {
     }, scheme.ParameterCodec)
     executor, err := remotecommand.NewSPDYExecutor(config, "POST", req.URL())
     if err != nil {
-        log.Printf("NewSPDYExecutor err: %v", err)
+        log.Panic("NewSPDYExecutor err: ", err)
     }
     //reader, writer := io.Pipe()
     reader, outStream := io.Pipe()
@@ -186,9 +185,7 @@ func Exec(command []string) string {
     
     body, err := ioutil.ReadAll(reader)
     if err != nil {
-        log.Printf("ReadAll err: %v", err)
+        log.Panic("ReadAll err: ", err)
     }
-    
-    fmt.Println(string(body))
     return string(body)
 }
