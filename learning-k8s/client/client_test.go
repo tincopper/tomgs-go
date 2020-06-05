@@ -1,6 +1,9 @@
 package client
 
-import "testing"
+import (
+    "fmt"
+    "testing"
+)
 
 func TestK8sClient(t *testing.T) {
     K8sClient()
@@ -19,5 +22,6 @@ func TestExec(t *testing.T) {
     //command := []string{"ps", "-ef", "|", "grep", "sentinel-dashboard"}
     // 应该这样处理，或者使用上面连接的处理方式
     command := []string{"sh", "-c", "ps -ef | grep -v grep | grep sentinel-dashboard"}
-    Exec(command)
+    result := Exec(command)
+    fmt.Println(result)
 }
