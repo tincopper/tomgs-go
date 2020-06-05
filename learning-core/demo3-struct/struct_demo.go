@@ -116,4 +116,8 @@ func UseStruct()  {
     name := cat.GetName()
     color := cat.GetColor()
     fmt.Println(name, color)
+    
+    // 特殊使用
+    //s := struct{}{}
+    //s1 := struct{a string}{"a"}
 }

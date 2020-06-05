@@ -10,6 +10,11 @@ import (
 )
 
 func main() {
+	mylog.Debug.Println("test debug log...")
+	mylog.Info.Println("test info log...")
+	mylog.Warn.Println("test warn log...")
+	mylog.Error.Println("test error log...")
+	
 	// 基础的demo练习
 	baseDemo()
 	// 类型转换
@@ -52,7 +57,9 @@ func main() {
 	fmt.Println(demo_base.Div(1, 0))
 
 	timetest.TimerTest()
-
+	
+	system_demo.PrintHello()
+	
 	listenSignal()
 }
 

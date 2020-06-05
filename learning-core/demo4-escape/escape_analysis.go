@@ -4,7 +4,7 @@ import "fmt"
 
 /*
   变量逃逸分析
-  go run -gcflags "-m -l" main.go
+  go run -gcflags "-m -l" submit_argo.go
   使用 go run 运行程序时，-gcflags 参数是编译参数。其中 -m 表示进行内存分配分析，-l 表示避免程序内联，也就是避免进行程序优化。
  */
 func main() {
