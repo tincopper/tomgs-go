@@ -16,3 +16,7 @@ func TestExecCmd(t *testing.T) {
 
     fmt.Println(string(output))
 }
+
+func TestSliceSimple(t *testing.T) {
+    SliceSimple()
+}
