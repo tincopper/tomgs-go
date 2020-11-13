@@ -28,7 +28,7 @@ spec:
       - name: argo-source
         path: /src
         git:
-          repo: http://git.kingdee.com/autotest/V7_AutoTest.git
+          repo: http://git.tomgs.com/autotest/V7_AutoTest.git
           revision: "master"
           usernameSecret:
             name: autotest
@@ -39,7 +39,7 @@ spec:
           depth: 1
     container:
       workingDir: /src/
-      image: reg.jdy.com/auto-test/v7_autotest:alpine
+      image: reg.tomgs.com/auto-test/v7_autotest:alpine
       command: [sh, -xc]
       args:
       - |
