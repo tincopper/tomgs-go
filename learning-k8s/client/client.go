@@ -144,8 +144,8 @@ func homeDir() string {
 
 func Exec(command []string) string {
     config := GetK8sConfig()
-    namespace := "ns-retail-dev"
-    podName := "sentinel-dashboard-d6d4dbd6-xqrjz"
+    namespace := "ide"
+    podName := "theia-bos-maven-release-v1-b699c999d-grlqp"
     // exec
     coreClient, err := corev1client.NewForConfig(config)
     if err != nil {
