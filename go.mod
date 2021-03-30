@@ -10,6 +10,7 @@ require (
 	github.com/coreos/etcd v3.3.13+incompatible // indirect
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
 	github.com/donnie4w/go-logger v0.0.0-20170827050443-4740c51383f4
+	github.com/eapache/queue v1.1.0
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
 	github.com/elazarl/goproxy v0.0.0-20200315184450-1f3cb6622dad // indirect
 	github.com/fatih/structs v1.1.0 // indirect
