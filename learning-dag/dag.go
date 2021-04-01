@@ -25,7 +25,54 @@ func (dag *DAG) AddEdge(from, to *Vertex) {
 }
 
 //生成图，返回dag和其根顶点
+func NewDAG1() (*DAG, *Vertex) {
+	var dag = &DAG{}
+	va := &Vertex{Key: "a", Value: "1"}
+	/*
+		 a
+	   / | \
+	  b  c  d
+	  /  |    \
+	 e   f     g
+	 |  / | \  |
+	 |  h i  j |     1                     a(4)
+	 \  | |  | |                b(3)       c(3)    d(3)
+	  \|  |  |/						       f(2)
+	    \ | /                e     h		i(1)		j		g 1
+	      u         0                  	   u(0)
+	 */
+	return dag, va
+}
 func NewDAG() (*DAG, *Vertex) {
+	var dag = &DAG{}
+	va := &Vertex{Key: "a", Value: "1"}
+	vb := &Vertex{Key: "b", Value: "2"}
+	vc := &Vertex{Key: "c", Value: "3"}
+	vd := &Vertex{Key: "d", Value: "4"}
+	ve := &Vertex{Key: "e", Value: "5"}
+	
+	/*
+	   a
+	  / \
+	 b   c
+	  \  /
+	   d
+	   |
+	   e
+	 */
+	 
+	dag.AddEdge(va, vb)
+	dag.AddEdge(va, vc)
+	
+	dag.AddEdge(vb, vd)
+	dag.AddEdge(vc, vd)
+	
+	dag.AddEdge(vd, ve)
+	
+	return dag, va
+}
+
+/*func NewDAG() (*DAG, *Vertex) {
 	var dag = &DAG{}
 	
 	va := &Vertex{Key: "a", Value: "1"}
@@ -56,4 +103,4 @@ func NewDAG() (*DAG, *Vertex) {
 	dag.AddEdge(vx, vd)
 	dag.AddEdge(vy, vi)
 	return dag, va
-}
+}*/
