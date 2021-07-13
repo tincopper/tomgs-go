@@ -6,7 +6,7 @@ type Configurator func(*Application)
 
 type Application struct {
     // 设置一些属性
-    // config *Configuration
+    // configs *Configuration
     // ...
     AppName string
 }

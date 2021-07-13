@@ -28,7 +28,7 @@ import (
 func main() {
     var kubeconfig *string
     if home := homeDir(); home != "" {
-        kubeconfig = flag.String("kubeconfig", filepath.Join(home, "kube", "config"), "(optional) absolute path to the kubeconfig file")
+        kubeconfig = flag.String("kubeconfig", filepath.Join(home, "kube", "configs"), "(optional) absolute path to the kubeconfig file")
     } else {
         kubeconfig = flag.String("kubeconfig", "", "absolute path to the kubeconfig file")
     }
@@ -94,7 +94,7 @@ func main() {
         Stderr:    true,
         TTY:       true,
     }, scheme.ParameterCodec)
-    executor, err := remotecommand.NewSPDYExecutor(config, "POST", req.URL())
+    executor, err := remotecommand.NewSPDYExecutor(configs, "POST", req.URL())
     if err != nil {
         log.Printf("NewSPDYExecutor err: %v", err)
     }
