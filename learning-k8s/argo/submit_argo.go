@@ -41,7 +41,7 @@ func main() {
 	checkErr(err)
 
 	// get kubeconfig file location
-	kubeconfig := flag.String("kubeconfig", filepath.Join(usr.HomeDir, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
+	kubeconfig := flag.String("kubeconfig", filepath.Join(usr.HomeDir, ".kube", "configs"), "(optional) absolute path to the kubeconfig file")
 	flag.Parse()
 
 	// use the current context in kubeconfig
