@@ -1,24 +1,28 @@
 module tomgs-go
 
 require (
+	dubbo.apache.org/dubbo-go/v3 v3.0.0-rc2.0.20211009125508-c22d9c3e529f
 	github.com/Joker/jade v1.0.0 // indirect
+	github.com/NYTimes/gziphandler v1.1.1 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/argoproj/argo v2.5.2+incompatible
 	github.com/argoproj/pkg v0.9.1
 	github.com/aymerick/raymond v2.0.2+incompatible // indirect
-	github.com/coreos/etcd v3.3.13+incompatible // indirect
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
 	github.com/donnie4w/go-logger v0.0.0-20170827050443-4740c51383f4
+	github.com/dubbogo/triple v1.0.6-0.20210909153707-3620c8d2d97c
 	github.com/eapache/queue v1.1.0
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
 	github.com/elazarl/goproxy v0.0.0-20200315184450-1f3cb6622dad // indirect
-	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
 	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
-	github.com/google/go-querystring v1.0.0 // indirect
+	github.com/golang/protobuf v1.5.2
 	github.com/googleapis/gnostic v0.4.1 // indirect
+	github.com/gophercloud/gophercloud v0.3.0 // indirect
 	github.com/gorilla/schema v1.1.0 // indirect
+	github.com/hashicorp/consul v1.8.0 // indirect
+	github.com/hashicorp/go-raftchunking v0.6.3-0.20191002164813-7e9e8525653a // indirect
 	github.com/imdario/mergo v0.3.9 // indirect
 	github.com/imkira/go-interpol v1.1.0 // indirect
 	github.com/iris-contrib/blackfriday v2.0.0+incompatible // indirect
@@ -26,30 +30,31 @@ require (
 	github.com/iris-contrib/go.uuid v2.0.0+incompatible // indirect
 	github.com/iris-contrib/httpexpect v0.0.0-20180314041918-ebe99fcebbce // indirect
 	github.com/juju/errors v0.0.0-20190930114154-d42613fe1ab9 // indirect
-	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
 	github.com/kataras/golog v0.0.10 // indirect
 	github.com/kataras/iris v11.1.1+incompatible
 	github.com/klauspost/compress v1.9.7 // indirect
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/lestrrat-go/strftime v1.0.5 // indirect
-	github.com/mattn/go-colorable v0.1.6 // indirect
+	github.com/linode/linodego v0.10.0 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.2 // indirect
+	github.com/miekg/dns v1.1.27 // indirect
+	github.com/mitchellh/hashstructure v1.0.0 // indirect
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.9.0 // indirect
-	github.com/ryanuber/columnize v2.1.0+incompatible // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/shima-park/agollo v1.1.7
-	github.com/sirupsen/logrus v1.6.0
-	github.com/spf13/viper v1.6.1
+	github.com/sirupsen/logrus v1.7.0
+	github.com/spf13/viper v1.7.1
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
 	github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0 // indirect
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
-	go.uber.org/zap v1.10.0
+	go.uber.org/zap v1.19.1
+	google.golang.org/grpc v1.41.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
-	gopkg.in/yaml.v2 v2.3.0
+	gopkg.in/yaml.v2 v2.4.0
 	k8s.io/api v0.18.1
 	k8s.io/apimachinery v0.18.1
 	k8s.io/client-go v0.18.1
