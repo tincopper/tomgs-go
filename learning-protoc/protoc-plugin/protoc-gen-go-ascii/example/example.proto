@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package example;
+
+//option go_package = "github.com/rotemtam/protoc-gen-go-ascii/example";
+option go_package = ".;test";
+
+message Hello {
+
+}
