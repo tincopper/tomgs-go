@@ -1,0 +1,9 @@
+version: v1beta1
+name: buf.build/tomgs/myrepo
+# 添加protoc依赖
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway
+build:
+  roots:
+    - api
