@@ -27,9 +27,9 @@ func main() {
         SetConsumer(config.NewConsumerConfigBuilder().
             SetRegistryIDs("zookeeper").
             AddReference("GreeterClientImpl", config.NewReferenceConfigBuilder().
-                //SetInterface("org.apache.dubbo.UserProvider").
-                SetInterface("com.tomgs.learning.dubbo.api.IGreeter").
-                SetProtocol("dubbo").
+                SetInterface("org.apache.dubbo.UserProvider").
+                //SetInterface("com.tomgs.learning.dubbo.api.IGreeter").
+                SetProtocol("tri").
                 Build()).
             Build()).
         AddRegistry("zookeeper", config.NewRegistryConfigWithProtocolDefaultPort("zookeeper")).
