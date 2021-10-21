@@ -16,13 +16,14 @@ import (
     "google.golang.org/grpc"
 
     api "tomgs-go/learning-grpc-gateway/hello-world/api"
+    _ "tomgs-go/learning-grpcgateway2dubbo/hello-world/adapter/dubbo"
 )
 
 var dubboRefConf config.ReferenceConfig
 
 func init() {
-    dubboRefConf = newRefConf("kd.bos.debug.mservice.api.IGreeter", dubbo.DUBBO)
-    //dubboRefConf = newRefConf("com.tomgs.learning.dubbo.api.IGreeter", dubbo.DUBBO)
+    //dubboRefConf = newRefConf("kd.bos.debug.mservice.api.IGreeter", dubbo.DUBBO)
+    dubboRefConf = newRefConf("com.tomgs.learning.dubbo.api.IGreeter", dubbo.DUBBO)
     //dubboRefConf = newRefConf("kd.bos.service.DispatchService", dubbo.DUBBO)
 }
 
@@ -54,7 +55,8 @@ func callGetOneUser1(refConf config.ReferenceConfig, arg string) string {
         []hessian.Object{ arg },
     )
     if err != nil {
-        panic(err)
+        logger.Infof(err.Error())
+        return ""
     }
     logger.Infof("GetUser1(userId string) res: %+v", resp)
     return resp.(string)
@@ -140,14 +142,20 @@ func newRefConf(iface, protocol string) config.ReferenceConfig {
         //RegistryIDs:   []string{"zk"},
         Protocol:      protocol,
         Generic:       "true",
+        //Filter:        "bos,echo",
         //Group:         "bd",
         //Version:       "1.0",
         //URL:           "dubbo://172.20.176.190:20880",
         URL:           "dubbo://127.0.0.1:50051",
     }
 
+    consumerConfig := config.ConsumerConfig{
+        Filter: "bos,echo",
+    }
+
     rootConfig := config.NewRootConfigBuilder().
         //AddRegistry("zk", registryConfig).
+        SetConsumer(&consumerConfig).
         Build()
     _ = rootConfig.Init()
     _ = refConf.Init(rootConfig)
