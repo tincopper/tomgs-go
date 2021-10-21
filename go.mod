@@ -6,12 +6,14 @@ require (
 	github.com/NYTimes/gziphandler v1.1.1 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20181106222321-ec9c9a553398 // indirect
 	github.com/ajg/form v1.5.1 // indirect
+	github.com/apache/dubbo-go-hessian2 v1.9.3
 	github.com/argoproj/argo v2.5.2+incompatible
 	github.com/argoproj/pkg v0.9.1
 	github.com/aymerick/raymond v2.0.2+incompatible // indirect
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
 	github.com/docker/spdystream v0.0.0-20181023171402-6480d4af844c // indirect
 	github.com/donnie4w/go-logger v0.0.0-20170827050443-4740c51383f4
+	github.com/dubbogo/gost v1.11.17
 	github.com/dubbogo/triple v1.0.6-0.20210909153707-3620c8d2d97c
 	github.com/eapache/queue v1.1.0
 	github.com/eknkc/amber v0.0.0-20171010120322-cdade1c07385 // indirect
