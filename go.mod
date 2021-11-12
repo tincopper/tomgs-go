@@ -69,4 +69,6 @@ require (
 	k8s.io/utils v0.0.0-20200327001022-6496210b90e8 // indirect
 )
 
+replace dubbo.apache.org/dubbo-go/v3 => ../github.com/apache/dubbo-go
+
 go 1.13
