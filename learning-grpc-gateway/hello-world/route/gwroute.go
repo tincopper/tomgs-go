@@ -5,15 +5,29 @@ import (
     "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
     "google.golang.org/grpc"
     "log"
-    helloworldpb "tomgs-go/learning-grpc-gateway/hello-world/api"
 )
 
-func AddRoute(gwmux *runtime.ServeMux) {
+var routes []func(gwmux *runtime.ServeMux)
+
+func RegisterRoutes(gwmux *runtime.ServeMux) {
+    //api.AddRoutes(gwmux)
+    for _, routeFunc := range routes {
+        if routeFunc != nil {
+            routeFunc(gwmux)
+        }
+    }
+}
+
+func AddRoute(routeFunc func(gwmux *runtime.ServeMux)) {
+    routes = append(routes, routeFunc)
+}
+
+func AddUnitRoute(target string, gwmux *runtime.ServeMux, route func(gwmux *runtime.ServeMux, conn *grpc.ClientConn) error) {
     // Create a client connection to the gRPC server we just started
     // This is where the gRPC-Gateway proxies the requests
     conn, err := grpc.DialContext(
         context.Background(),
-        "0.0.0.0:8080",
+        target, //pod service name
         grpc.WithBlock(),
         grpc.WithInsecure(),
     )
@@ -21,24 +35,9 @@ func AddRoute(gwmux *runtime.ServeMux) {
         log.Fatalln("Failed to dial server:", err)
     }
     // Register Greeter
-    err = helloworldpb.RegisterGreeterHandler(context.Background(), gwmux, conn)
+    //err = helloworldpb.RegisterGreeterHandler(context.Background(), gwmux, conn)
+    err = route(gwmux, conn)
     if err != nil {
         log.Fatalln("Failed to register gateway:", err)
     }
-
-    conn, err = grpc.DialContext(
-        context.Background(),
-        "0.0.0.0:8081",
-        grpc.WithBlock(),
-        grpc.WithInsecure(),
-    )
-    if err != nil {
-        log.Fatalln("Failed to dial server:", err)
-    }
-    // Register Greeter
-    err = helloworldpb.RegisterGreeterHandler(context.Background(), gwmux, conn)
-    if err != nil {
-        log.Fatalln("Failed to register gateway:", err)
-    }
-
 }

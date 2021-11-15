@@ -33,6 +33,7 @@ require (
 	github.com/iris-contrib/formBinder v5.0.0+incompatible // indirect
 	github.com/iris-contrib/go.uuid v2.0.0+incompatible // indirect
 	github.com/iris-contrib/httpexpect v0.0.0-20180314041918-ebe99fcebbce // indirect
+	github.com/jhump/protoreflect v1.10.1
 	github.com/jteeuwen/go-bindata v3.0.7+incompatible // indirect
 	github.com/juju/errors v0.0.0-20190930114154-d42613fe1ab9 // indirect
 	github.com/kataras/golog v0.0.10 // indirect

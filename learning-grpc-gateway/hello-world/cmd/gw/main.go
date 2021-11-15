@@ -4,12 +4,13 @@ import (
     "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
     "log"
     "net/http"
+    _ "tomgs-go/learning-grpc-gateway/hello-world/api"
     "tomgs-go/learning-grpc-gateway/hello-world/route"
 )
 
 func main() {
     gwmux := runtime.NewServeMux()
-    route.AddRoute(gwmux)
+    route.RegisterRoutes(gwmux)
 
     gwServer := &http.Server{
         Addr:    ":8090",
