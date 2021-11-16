@@ -16,23 +16,18 @@
  */
 syntax = "proto3";
 
+// 将 gRPC-Gateway 批注添加到现有的 proto 文件中
+import "google/api/annotations.proto";
+import "endpoint.proto";
+
 option java_multiple_files = true;
 option java_package = "io.grpc.examples.helloworld";
 option java_outer_classname = "HelloWorldProto";
 option objc_class_prefix = "HLW";
 option go_package = ".;test";
-option (endpoint) = "0.0.0.0:8089";
+option (service.endpoint) = "0.0.0.0:8089";
 
 package main;
-
-// 将 gRPC-Gateway 批注添加到现有的 proto 文件中
-import "google/api/annotations.proto";
-// 自定义options
-import "google/protobuf/descriptor.proto";
-
-extend google.protobuf.FileOptions {
-  optional string endpoint = 51234;
-}
 
 // The greeting service definition.
 service Greeter {
@@ -40,6 +35,23 @@ service Greeter {
   rpc SayHello (HelloRequest) returns (HelloReply) {
     option (google.api.http) = {
       post: "/v1/example/echo"
+      body: "*"
+    };
+  }
+
+  rpc SayGood (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      post: "/v1/example/good"
+      body: "*"
+    };
+  }
+}
+
+service Greeter2 {
+  // Sends a greeting
+  rpc SayHello2 (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      post: "/v1/example/echo2"
       body: "*"
     };
   }

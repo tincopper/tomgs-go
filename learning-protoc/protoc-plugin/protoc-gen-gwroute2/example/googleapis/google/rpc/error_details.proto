@@ -18,7 +18,7 @@ package google.rpc;
 
 import "google/protobuf/duration.proto";
 
-option go_package = "google.golang.org/genproto/apis/rpc/errdetails;errdetails";
+option go_package = "google.golang.org/genproto/googleapis/rpc/errdetails;errdetails";
 option java_multiple_files = true;
 option java_outer_classname = "ErrorDetailsProto";
 option java_package = "com.google.rpc";
