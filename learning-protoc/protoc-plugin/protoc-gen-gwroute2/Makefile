@@ -14,13 +14,10 @@
 # limitations under the License.
 # 安装插件
 gwroute-install:
-	go install ../../protoc-gen-gwroute2
-
-endpoint-gen:
-	protoc -I ./ -I ./googleapis/ endpoint.proto  --go_out .
+	go install ../protoc-gen-gwroute2
 
 go-gen:
-	protoc -I ./ -I ./googleapis/ helloworld.proto  --go_out .
+	protoc -I ./ -I ./proto endpoint.proto  --go_out .
 
 grpc-gen:
 	protoc -I ./ -I ./googleapis/ helloworld.proto  --go-grpc_out .

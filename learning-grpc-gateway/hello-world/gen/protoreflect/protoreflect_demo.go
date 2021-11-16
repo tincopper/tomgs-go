@@ -5,13 +5,14 @@ import (
     "github.com/golang/protobuf/proto"
     "github.com/jhump/protoreflect/desc/protoparse"
     "log"
+    test "tomgs-go/learning-protoc/protoc-plugin/protoc-gen-gwroute2/example"
 )
 
 // 解析proto文件
 func ParseProto() {
     parser := protoparse.Parser{
         ImportPaths: []string{"E:\\go_workspace\\src\\tomgs-go\\learning-protoc\\protoc-plugin\\protoc-gen-gwroute2\\example\\",
-            "E:\\go_workspace\\src\\tomgs-go\\learning-protoc\\protoc-plugin\\protoc-gen-gwroute2\\example\\apis"},
+            "E:\\go_workspace\\src\\tomgs-go\\learning-protoc\\protoc-plugin\\protoc-gen-gwroute2\\example\\googleapis"},
     }
     files, err := parser.ParseFiles("helloworld.proto")
     if err != nil {
@@ -26,10 +27,11 @@ func ParseProto() {
         endpointValue := string(rawFields)
         fmt.Println(endpointValue)
 
+        value, _ := proto.GetExtension(fileDescriptor.GetOptions(), test.E_Endpoint)
+        fmt.Println(fmt.Sprint(*value.(*string)))
+
         endpointExtension := fileDescriptor.FindExtension("google.protobuf.FileOptions", 51234)
         fmt.Println(endpointExtension.GetName())
-
-        //get := proto.MessageV2(fileDescriptor.GetOptions()).ProtoReflect().Get(endpointExtension)
 
         for _, extension := range fileDescriptor.GetExtensions() {
             name := extension.GetName()
