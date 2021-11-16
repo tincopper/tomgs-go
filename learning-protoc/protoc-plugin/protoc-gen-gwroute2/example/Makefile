@@ -17,7 +17,7 @@ gwroute-install:
 	go install ../../protoc-gen-gwroute2
 
 endpoint-gen:
-	protoc -I ./ -I ./googleapis/ endpoint.proto  --go_out .
+	protoc -I ./ -I ./googleapis/ endpoint.proto  --go_out ./service --go_opt=paths=source_relative
 
 go-gen:
 	protoc -I ./ -I ./googleapis/ helloworld.proto  --go_out .
