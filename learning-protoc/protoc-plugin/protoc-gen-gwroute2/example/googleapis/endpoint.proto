@@ -17,7 +17,7 @@ syntax = "proto3";
 package service;
 
 import "google/protobuf/descriptor.proto";
-option go_package = "./service;service";
+option go_package = "tomgs-go/learning-protoc/protoc-plugin/protoc-gen-gwroute2/example/service;service";
 
 extend google.protobuf.FileOptions {
   optional string endpoint = 51234;
