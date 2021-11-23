@@ -20,6 +20,25 @@ func (s *server) SayHello(ctx context.Context, in *helloworldpb.HelloRequest) (*
 	return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
 }
 
+func (s *server) SayGood(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error)  {
+	return &helloworldpb.HelloReply{Message: in.Name + " Good"}, nil
+}
+
+////
+type server2 struct {
+	helloworldpb.UnimplementedGreeter2Server
+}
+
+func NewServer2() *server2 {
+	return &server2{}
+}
+
+/*func (s *server2) SayHello2(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error) {
+	return &helloworldpb.HelloReply{Message: in.Name + " world2"}, nil
+}*/
+
+
+
 func main() {
 	// Create a listener on TCP port
 	lis, err := net.Listen("tcp", ":8080")
