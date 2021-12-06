@@ -8,6 +8,7 @@ import (
     "time"
 )
 
+// https://github.com/shima-park/agollo
 func Demo1() {
     a, err := agollo.New("172.20.183.155:8080", "panshi-agent-dev", agollo.AutoFetchOnCacheMiss())
     if err != nil {
@@ -101,6 +102,7 @@ func Demo2() {
     for {
         time.Sleep(1 * time.Second)
         _ = v.WatchRemoteConfig()
+        v.WatchRemoteConfigOnChannel()
         //fmt.Println("app.AllSettings:", v.AllSettings())
         fmt.Println("listen:", v.GetString("panshi-agent.listen"))
     }
