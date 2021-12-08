@@ -37,9 +37,14 @@
     <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
     <script>
     window.onload = function() {
+      let urlAdd = "https://petstore.swagger.io/v2/swagger.json"
+      let fileName = getQueryVariable("file")
+      if (fileName !== undefined || fileName !== "") {
+        urlAdd = fileName
+      }
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: "https://petstore.swagger.io/v2/swagger.json",
+        url: urlAdd,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
@@ -55,6 +60,16 @@
 
       window.ui = ui;
     };
+
+    function getQueryVariable(variable) {
+      let query = window.location.search.substring(1);
+      let vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+        let pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+      }
+      return(false);
+    }
   </script>
   </body>
 </html>
