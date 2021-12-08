@@ -60,6 +60,10 @@ func main() {
         log.Fatalln("Failed to register gateway:", err)
     }
 
+    mux := http.NewServeMux()
+    //mux.HandleFunc("/openapiv2/", openAPIServer(opts.OpenAPIDir))
+    mux.Handle("/", gwmux)
+
     gwServer := &http.Server{
         Addr:    ":8090",
         Handler: gwmux,

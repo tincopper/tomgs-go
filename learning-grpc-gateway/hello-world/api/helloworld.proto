@@ -4,6 +4,16 @@ option go_package = "tomgs-go/learning-grpc-gateway/hello-world/api";
 
 // 将 gRPC-Gateway 批注添加到现有的 proto 文件中
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+// 定义swagger内容
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "grpc gateway helloworld sample";
+    version: "1.0";
+  };
+  schemes: HTTP;
+};
 
 // The greeting service definition.
 service Greeter {

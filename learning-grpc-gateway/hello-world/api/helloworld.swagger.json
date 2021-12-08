@@ -1,13 +1,16 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "helloworld.proto",
-    "version": "version not set"
+    "title": "grpc gateway helloworld sample",
+    "version": "1.0"
   },
   "tags": [
     {
       "name": "Greeter"
     }
+  ],
+  "schemes": [
+    "http"
   ],
   "consumes": [
     "application/json"
