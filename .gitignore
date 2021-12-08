@@ -35,3 +35,8 @@ vendor/**/*_test.go
 
 *.bak
 *.agollo
+*.pb.go
+*.gw.go
+buf.lock
+datafile.go
+test.hello.go
