@@ -33,7 +33,7 @@ func run() error {
 	}
 
 	mux := http.NewServeMux()
-	mux.Handle("/serve", gwmux)
+	mux.Handle("/", gwmux)
 	mux.HandleFunc("/swagger/", serveSwaggerFile)
 	mux.HandleFunc("/docs/", fileHandler)
 	serveSwaggerUI(mux)
@@ -82,6 +82,7 @@ func serveSwaggerUI(mux *http.ServeMux) {
 }
 
 var dir = "api"
+
 func fileHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Serving %s\n", r.URL.Path)
 	p := strings.TrimPrefix(r.URL.Path, "/docs/")

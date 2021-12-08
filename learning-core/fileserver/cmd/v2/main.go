@@ -22,7 +22,7 @@ func main() {
 	//有时候，我们想要处理器的注册路径和http.Dir的起始路径不相同。有些工具在打包时会将静态文件输出到public目录中。
 	//这时需要使用http.StripPrefix方法，该方法会将请求路径中特定的前缀去掉，然后再进行处理
 	//这时，请求localhost:8080/static/hello.html将会返回./public/hello.html文件。
-	//mux.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./public"))))
+	mux.Handle("/docs/", http.StripPrefix("/docs", http.FileServer(http.Dir("static/"))))
 
 	server := &http.Server {
 		Addr: ":8080",
