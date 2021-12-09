@@ -18,14 +18,14 @@ syntax = "proto3";
 
 // 将 gRPC-Gateway 批注添加到现有的 proto 文件中
 import "google/api/annotations.proto";
-import "endpoint.proto";
+//import "endpoint.proto";
 
 option java_multiple_files = true;
 option java_package = "io.grpc.examples.helloworld";
 option java_outer_classname = "HelloWorldProto";
 option objc_class_prefix = "HLW";
 option go_package = ".;test";
-option (service.endpoint) = "0.0.0.0:8080";
+//option (service.endpoint) = "0.0.0.0:8080";
 
 package main;
 

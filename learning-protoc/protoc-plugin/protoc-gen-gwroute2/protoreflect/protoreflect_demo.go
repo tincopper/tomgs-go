@@ -5,7 +5,7 @@ import (
     "github.com/golang/protobuf/proto"
     "github.com/jhump/protoreflect/desc/protoparse"
     "log"
-    test "tomgs-go/learning-protoc/protoc-plugin/protoc-gen-gwroute2/example"
+    test "tomgs-go/learning-protoc/protoc-plugin/protoc-gen-gwroute2/example/service"
 )
 
 // 解析proto文件

@@ -17,7 +17,7 @@ syntax = "proto3";
 package service;
 
 import "google/protobuf/descriptor.proto";
-option go_package = "jdy.com/xgateway/genproto/customapis/endpoint;service";
+option go_package = "github.com/xgateway/genproto/customapis/endpoint;service";
 
 extend google.protobuf.FileOptions {
   optional string endpoint = 51234;

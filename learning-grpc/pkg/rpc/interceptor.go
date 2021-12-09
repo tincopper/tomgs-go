@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"context"
-	"tomgs-go/learning-grpc/hello-world/pkg/errors"
+	"tomgs-go/learning-grpc/pkg/errors"
 
 	"google.golang.org/grpc"
 )
