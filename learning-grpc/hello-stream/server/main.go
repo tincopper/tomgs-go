@@ -36,6 +36,7 @@ func (s *server3) BidirectionalStream(stream hellowstream.StreamGreeter_Bidirect
 }
 
 // https://juejin.cn/post/6844903957794390024#heading-7
+// https://www.grpc.io/docs/languages/go/basics/
 func main() {
 	// Create a listener on TCP port
 	lis, err := net.Listen("tcp", ":8080")
