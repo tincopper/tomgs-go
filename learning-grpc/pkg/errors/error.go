@@ -3,8 +3,8 @@ package errors
 import (
 	"context"
 	"fmt"
-	"tomgs-go/learning-grpc/hello-world/pkg/logger"
-	"tomgs-go/learning-grpc/hello-world/pkg/util"
+	"tomgs-go/learning-grpc/pkg/logger"
+	"tomgs-go/learning-grpc/pkg/util"
 
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

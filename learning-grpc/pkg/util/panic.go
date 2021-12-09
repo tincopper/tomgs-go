@@ -3,7 +3,7 @@ package util
 import (
 	"fmt"
 	"runtime"
-	"tomgs-go/learning-grpc/hello-world/pkg/logger"
+	"tomgs-go/learning-grpc/pkg/logger"
 
 	"go.uber.org/zap"
 )
