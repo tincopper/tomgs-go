@@ -20,8 +20,10 @@ require (
 	github.com/elazarl/goproxy v0.0.0-20200315184450-1f3cb6622dad // indirect
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
 	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
+	github.com/go-pg/pg/v10 v10.10.6
 	github.com/golang/glog v1.0.0
 	github.com/golang/protobuf v1.5.2
+	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/googleapis/gnostic v0.4.1 // indirect
 	github.com/gorilla/schema v1.1.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0
@@ -41,8 +43,6 @@ require (
 	github.com/lestrrat-go/strftime v1.0.5 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.2 // indirect
 	github.com/moul/http2curl v1.0.0 // indirect
-	github.com/onsi/ginkgo v1.12.0 // indirect
-	github.com/onsi/gomega v1.9.0 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/shima-park/agollo v1.1.7
 	github.com/sirupsen/logrus v1.7.0
