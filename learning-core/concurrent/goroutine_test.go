@@ -2,6 +2,7 @@ package main
 
 import (
     "fmt"
+    "testing"
     "time"
 )
 
@@ -31,7 +32,7 @@ func running() {
 //
 // 经常会遇到需要实现条件等待的场景，这也是channel可以发挥作用的地方。
 // 在go中如果遇到需要阻塞，加锁的地方先考虑能否使用channel来处理
-func main() {
+func TestRunningGoroutine(t *testing.T) {
     // 开启并发执行
     go running()
 
@@ -46,4 +47,3 @@ func main() {
     }
     fmt.Println(input)
 }
-
