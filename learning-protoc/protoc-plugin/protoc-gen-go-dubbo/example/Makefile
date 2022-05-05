@@ -13,12 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-go-ascii-install:
-	go install ../../protoc-gen-go-ascii
+dubbo-install:
+	go install ../../protoc-gen-go-dubbo
 
 go-gen:
-	protoc -I ./ example.proto --go_out .
+	protoc -I ./ helloworld.proto --go_out .
 
-# protoc -I ./ example.proto  --go-ascii_out=plugins=go-ascii:.
-go-ascii-gen:
-	protoc -I ./ example.proto  --go-ascii_out .
+dubbo-gen:
+	protoc -I ./ helloworld.proto  --go-dubbo_out .
+
