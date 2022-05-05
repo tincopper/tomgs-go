@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
-	"google.golang.org/grpc/status"
 	"log"
 	"net"
 	helloworldpb "tomgs-go/learning-grpc/hello-world/api"
@@ -25,9 +24,9 @@ func (s *server) SayHello(ctx context.Context, in *helloworldpb.HelloRequest) (*
 		fmt.Println(md)
 	}
 	//return nil, status.Error(codes.Unimplemented, "{\"description\":\"未登录或登录信息过期\",\"errcode\":30000401}")
-	return nil, status.Error(10010001, "invalid argument")
+	//return nil, status.Error(10010001, "invalid argument")
 	//return nil, errors.New("test error")
-	//return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
+	return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
 }
 
 func (s *server) SayGood(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error)  {
