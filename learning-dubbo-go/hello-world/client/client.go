@@ -3,6 +3,7 @@ package main
 import (
     "context"
     "time"
+    "tomgs-go/learning-dubbo-go/hello-world/api"
 )
 
 import (
@@ -12,7 +13,7 @@ import (
 )
 
 import (
-    "tomgs-go/learning-dubbo-go/hello-world/api"
+    _ "tomgs-go/learning-dubbo-go/hello-world/api"
 )
 
 var greeterProvider = &api.GreeterClientImpl{}
