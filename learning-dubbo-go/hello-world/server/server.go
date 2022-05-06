@@ -39,7 +39,7 @@ func main() {
 }
 
 type GreeterProvider struct {
-    api.GreeterProviderBase
+    api.GreeterServer
 }
 
 func (s *GreeterProvider) SayHelloStream(svr api.Greeter_SayHelloStreamServer) error {
