@@ -15,16 +15,18 @@ require (
 	github.com/go-pg/pg/v10 v10.10.6
 	github.com/golang/glog v1.0.0
 	github.com/golang/protobuf v1.5.2
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.6.0
+	github.com/grpc-ecosystem/grpc-gateway v1.16.0
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.0
 	github.com/jhump/protoreflect v1.10.1
 	github.com/kataras/iris v11.1.1+incompatible
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
+	github.com/mailru/easyjson v0.7.7
 	github.com/shima-park/agollo v1.1.7
 	github.com/sirupsen/logrus v1.7.0
 	github.com/spf13/viper v1.7.1
 	go.uber.org/zap v1.21.0
 	golang.org/x/net v0.0.0-20220225172249-27dd8689420f
-	google.golang.org/genproto v0.0.0-20211104193956-4c6863e31247
+	google.golang.org/genproto v0.0.0-20220317150908-0efb43f6373e
 	google.golang.org/grpc v1.46.0
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
@@ -96,7 +98,7 @@ require (
 	github.com/golang/mock v1.4.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/btree v1.0.1 // indirect
-	github.com/google/go-cmp v0.5.6 // indirect
+	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/gofuzz v1.1.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
@@ -131,7 +133,6 @@ require (
 	github.com/lestrrat-go/strftime v1.0.5 // indirect
 	github.com/liggitt/tabwriter v0.0.0-20181228230101-89fcab3d43de // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
-	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.7 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
@@ -198,7 +199,7 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
-	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
+	golang.org/x/oauth2 v0.0.0-20220309155454-6242fa91716a // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
@@ -218,7 +219,7 @@ require (
 	moul.io/http2curl v1.0.0 // indirect
 	sigs.k8s.io/kustomize v2.0.3+incompatible // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.1.2 // indirect
-	sigs.k8s.io/yaml v1.2.0 // indirect
+	sigs.k8s.io/yaml v1.3.0 // indirect
 )
 
 //replace dubbo.apache.org/dubbo-go/v3 => ../github.com/apache/dubbo-go
