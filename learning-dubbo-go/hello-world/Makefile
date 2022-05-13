@@ -18,7 +18,7 @@ triple-install:
 	go install ../../protoc-gen-go-triple
 
 go-gen:
-	protoc -I ./api helloworld.proto --go_out ./api
+	protoc -I ./api ./api/*.proto --go_out ./api
 
 triple-gen:
-	protoc -I ./api --go_out=./api --go-triple_out=./api helloworld.proto
+	protoc -I ./api ./api/*.proto --go_out=./api --go-triple_out=./api
