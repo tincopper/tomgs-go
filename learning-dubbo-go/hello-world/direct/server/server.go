@@ -33,6 +33,11 @@ import (
 
 type GreeterProvider struct {
 	api.UnimplementedGreeterServer
+	//api.UnimplementedGreeter2Server
+}
+
+type Greeter2Provider struct {
+	api.UnimplementedGreeter2Server
 }
 
 func (s *GreeterProvider) SayHello(ctx context.Context, in *api.HelloRequest) (*api.User, error) {
@@ -40,13 +45,21 @@ func (s *GreeterProvider) SayHello(ctx context.Context, in *api.HelloRequest) (*
 	return &api.User{Name: "Hello " + in.Name, Id: "12345", Age: 21}, nil
 }
 
+func (s *Greeter2Provider) SayHello2(ctx context.Context, in *api.HelloRequest2) (*api.User2, error) {
+	logger.Infof("Dubbo3 Greeter2Provider get user2 name = %s\n", in.Name)
+	return &api.User2{Name: "Hello " + in.Name, Id: "123456", Age: 22}, nil
+}
+
 // There is no need to export DUBBO_GO_CONFIG_PATH, as you are using config api to set config
 func main() {
 	config.SetProviderService(&GreeterProvider{})
+	config.SetProviderService(&Greeter2Provider{})
 
 	rootConfig := config.NewRootConfigBuilder().
 		SetProvider(config.NewProviderConfigBuilder().
 			AddService("GreeterProvider", config.NewServiceConfigBuilder().
+				Build()).
+			AddService("Greeter2Provider", config.NewServiceConfigBuilder().
 				Build()).
 			Build()).
 		//AddRegistry("zk", config.NewRegistryConfigWithProtocolDefaultPort("zookeeper")).
