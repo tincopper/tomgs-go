@@ -1,0 +1,5 @@
+syntax = "proto3";
+// 用于公共包导入使用
+option go_package = ".;";
+
+package share_package;
