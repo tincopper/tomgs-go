@@ -35,4 +35,7 @@ build-hello-stream:
 	protoc -I ./proto/ -I ./third_party/googleapis/ ./proto/hellostream.proto  --go_out ./hello-stream/api
 	protoc -I ./proto/ -I ./third_party/googleapis/ ./proto/hellostream.proto  --go-grpc_out ./hello-stream/api
 
+build-hello-world-bin:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o hello-world-bin tomgs-go/learning-grpc/hello-world/server
+
 build: build-hello-world build-hello-stream

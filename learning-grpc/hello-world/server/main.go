@@ -23,13 +23,14 @@ func (s *server) SayHello(ctx context.Context, in *helloworldpb.HelloRequest) (*
 	if ok {
 		fmt.Println(md)
 	}
+	fmt.Printf("Received Message: %s\n", in.GetName())
 	//return nil, status.Error(codes.Unimplemented, "{\"description\":\"未登录或登录信息过期\",\"errcode\":30000401}")
 	//return nil, status.Error(10010001, "invalid argument")
 	//return nil, errors.New("test error")
 	return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
 }
 
-func (s *server) SayGood(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error)  {
+func (s *server) SayGood(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error) {
 	return &helloworldpb.HelloReply{Message: in.Name + " Good"}, nil
 }
 
