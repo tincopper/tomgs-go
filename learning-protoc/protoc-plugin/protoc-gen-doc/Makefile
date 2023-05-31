@@ -10,6 +10,10 @@ EXAMPLE_CMD=bin/protoc --plugin=bin/protoc-gen-doc \
 	-Ithirdparty -Itmp/googleapis -Iexamples/proto \
 	--doc_out=examples/doc
 
+EXAMPLE_LOCAL_CMD=protoc \
+	-Ithirdparty -Itmp/googleapis -Iexamples/proto \
+	--doc_out=examples/doc
+
 DOCKER_CMD=docker run --rm \
 	-v $(DOCS_DIR):/out:rw \
 	-v $(PROTOS_DIR):/protos:ro \
@@ -119,3 +123,19 @@ tmp/googleapis:
 	@git clone --depth 1 https://github.com/protocolbuffers/protobuf tmp/protocolbuffers
 	@cp -r tmp/protocolbuffers/src/* tmp/googleapis/
 	@rm -rf tmp/protocolbuffers
+
+doc-install:
+	go install ./cmd/protoc-gen-doc
+
+debug/examples:
+	@echo "$(CYAN)Making examples...$(CLEAR)"
+	@$(EXAMPLE_LOCAL_CMD) --doc_opt=docbook,example.docbook:Ignore* examples/proto/*.proto
+	@$(EXAMPLE_LOCAL_CMD) --doc_opt=html,example.html:Ignore* examples/proto/*.proto
+	@$(EXAMPLE_LOCAL_CMD) --doc_opt=json,example.json:Ignore* examples/proto/*.proto
+	@$(EXAMPLE_LOCAL_CMD) --doc_opt=markdown,example.md:Ignore* examples/proto/*.proto
+	@$(EXAMPLE_LOCAL_CMD) --doc_opt=examples/templates/asciidoc.tmpl,example.txt:Ignore* examples/proto/*.proto
+
+debug1:
+	protoc -Ithirdparty -Itmp/googleapis -Iexamples/proto \
+		--doc_out=examples/doc \
+		--doc_opt=examples/templates/markdown.tmpl,example2.md:Ignore* examples/proto/*.proto
