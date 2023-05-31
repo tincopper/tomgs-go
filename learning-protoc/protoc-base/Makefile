@@ -7,7 +7,8 @@ plugin-install:
 		github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
 		github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
 		google.golang.org/protobuf/cmd/protoc-gen-go \
-		google.golang.org/grpc/cmd/protoc-gen-go-grpc
+		google.golang.org/grpc/cmd/protoc-gen-go-grpc \
+		github.com/go-kiss/protoc-gen-markdown
 
 # 使用的 protoc --version 为 libprotoc 3.18.1
 # 使用的 protoc-gen-go --version 为 protoc-gen-go v1.27.1
@@ -29,3 +30,8 @@ gen-md:
 	--doc_out=api \
 	--doc_opt=markdown,helloworld.md \
 	proto/helloworld.proto
+
+# set path prefix to /api
+# protoc -I ./third_party/googleapis/ -I ./proto/ --markdown_out=Mhello.proto=./,prefix=/api:. ./proto/helloworld.proto
+gen-md-by-go-kiss:
+	protoc -I ./third_party/googleapis/ -I ./proto/ --markdown_out=Mhello.proto=./:./api ./proto/helloworld.proto

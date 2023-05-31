@@ -29,7 +29,7 @@ func init() {
     log.SetOutput(fileAndStdoutWriter)
 }
 
-func main() {
+func main1() {
     for {
         log.Error("xixixixi")
         log.Info("hello, world!")

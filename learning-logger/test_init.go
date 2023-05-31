@@ -11,7 +11,7 @@ func init() {
     logger.SetLevel(logger.DEBUG)
 }
 
-func main() {
+func main1() {
     logger.Debug("Debug log ...")
     logger.Info("Info log ...")
     logger.Warn("Warn log ...")

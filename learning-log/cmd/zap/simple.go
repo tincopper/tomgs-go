@@ -5,7 +5,7 @@ import (
     "time"
 )
 
-func main() {
+func main1() {
     logger, _ := zap.NewProduction()
     defer logger.Sync() // flushes buffer, if any
     url := "http://www.test.com"

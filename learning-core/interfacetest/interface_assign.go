@@ -29,7 +29,7 @@ type Lesser interface {
 	Less(b Integer) bool
 }
 
-func main() {
+func main2() {
 	// 将a 赋值给接口LessAdder
 	//var a Integer = 1
 	// 这样赋值是错误的
