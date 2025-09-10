@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/todocoder/go-stream/stream"
 	"testing"
+	"time"
 )
 
 type TestItem struct {
@@ -31,10 +32,15 @@ func TestForEachAndPeek(t *testing.T) {
 		fmt.Println(item.itemValue)
 	})
 
+	fmt.Println(time.Now())
 	stream.OfParallel(TestItem{itemNum: 1, itemValue: "item1"},
 		TestItem{itemNum: 2, itemValue: "item2"},
 		TestItem{itemNum: 3, itemValue: "item3"},
 	).ForEach(func(item TestItem) {
 		fmt.Println(item.itemValue)
+		time.Sleep(3 * time.Second)
 	})
+
+	fmt.Println("done")
+	fmt.Println(time.Now())
 }
