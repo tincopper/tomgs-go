@@ -8,6 +8,7 @@ require (
 	github.com/apache/dubbo-go-hessian2 v1.11.0
 	github.com/argoproj/argo v2.5.2+incompatible
 	github.com/argoproj/pkg v0.9.1
+	github.com/avast/retry-go v3.0.0+incompatible
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
 	github.com/donnie4w/go-logger v0.0.0-20170827050443-4740c51383f4
 	github.com/dubbogo/gost v1.11.22
@@ -31,6 +32,8 @@ require (
 	github.com/sirupsen/logrus v1.7.0
 	github.com/spf13/viper v1.9.0
 	github.com/stretchr/testify v1.8.1
+	github.com/todocoder/go-stream v1.1.3
+	github.com/valyala/fasthttp v1.36.0
 	go.uber.org/zap v1.21.0
 	golang.org/x/net v0.17.0
 	golang.org/x/text v0.14.0
@@ -75,6 +78,7 @@ require (
 	github.com/aliyun/alibaba-cloud-sdk-go v1.61.1800 // indirect
 	github.com/aliyun/alibabacloud-dkms-gcs-go-sdk v0.2.2 // indirect
 	github.com/aliyun/alibabacloud-dkms-transfer-go-sdk v0.1.7 // indirect
+	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/aokoli/goutils v1.0.1 // indirect
 	github.com/apache/dubbo-getty v1.4.7 // indirect
 	github.com/armon/go-metrics v0.3.9 // indirect
@@ -216,12 +220,11 @@ require (
 	github.com/tklauser/go-sysconf v0.3.6 // indirect
 	github.com/tklauser/numcpus v0.2.2 // indirect
 	github.com/tmthrgd/go-hex v0.0.0-20190904060850-447a3041c3bc // indirect
-	github.com/todocoder/go-stream v1.1.3 // indirect
 	github.com/toolkits/concurrent v0.0.0-20150624120057-a4371d70e3e3 // indirect
 	github.com/uber/jaeger-client-go v2.29.1+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/ugorji/go/codec v1.2.6 // indirect
-	github.com/valyala/fasthttp v1.36.0 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/vmihailenco/bufpool v0.1.11 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.3.4 // indirect
 	github.com/vmihailenco/tagparser v0.1.2 // indirect
