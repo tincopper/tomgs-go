@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/codegenerator"
-	"github.com/grpc-ecosystem/grpc-gateway/v2/internal/descriptor/openapiconfig"
+	"tomgs-go/learning-protoc/protoc-plugin/protoc-gen-dubbo-gateway/internal/codegenerator"
+	"tomgs-go/learning-protoc/protoc-plugin/protoc-gen-dubbo-gateway/internal/descriptor/openapiconfig"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"

@@ -2,7 +2,7 @@ package main
 
 import (
     "context"
-    "dubbo.apache.org/dubbo-go/v3/common/logger"
+    "github.com/dubbogo/gost/log/logger"
     "dubbo.apache.org/dubbo-go/v3/config"
     "dubbo.apache.org/dubbo-go/v3/config/generic"
     _ "dubbo.apache.org/dubbo-go/v3/imports"

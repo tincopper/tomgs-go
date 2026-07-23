@@ -1,74 +1,97 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"os/user"
 	"path/filepath"
 
-	wfv1 "github.com/argoproj/argo/pkg/apis/workflow/v1alpha1"
-	wfclientset "github.com/argoproj/argo/pkg/client/clientset/versioned"
-	"github.com/argoproj/pkg/errors"
-	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"k8s.io/apimachinery/pkg/fields"
+	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/apimachinery/pkg/runtime/schema"
+	"k8s.io/apimachinery/pkg/watch"
+	"k8s.io/client-go/dynamic"
 	"k8s.io/client-go/tools/clientcmd"
 )
 
-var (
-	helloWorldWorkflow = wfv1.Workflow{
-		ObjectMeta: metav1.ObjectMeta{
-			GenerateName: "hello-world-",
-		},
-		Spec: wfv1.WorkflowSpec{
-			Entrypoint: "whalesay",
-			Templates: []wfv1.Template{
-				{
-					Name: "whalesay",
-					Container: &corev1.Container{
-						Image:   "docker/whalesay:latest",
-						Command: []string{"cowsay", "hello world"},
+// Workflow GVR for Argo Workflows (argoproj.io/v1alpha1).
+// Uses the dynamic client instead of the outdated typed client from
+// github.com/argoproj/argo@v2.5.2, which is incompatible with modern
+// client-go REST APIs that require context.Context.
+var workflowGVR = schema.GroupVersionResource{
+	Group:    "argoproj.io",
+	Version:  "v1alpha1",
+	Resource: "workflows",
+}
+
+func main() {
+	usr, err := user.Current()
+	checkErr(err)
+
+	kubeconfig := flag.String("kubeconfig", filepath.Join(usr.HomeDir, ".kube", "config"), "(optional) absolute path to the kubeconfig file")
+	flag.Parse()
+
+	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
+	checkErr(err)
+	namespace := "default"
+
+	dynClient, err := dynamic.NewForConfig(config)
+	checkErr(err)
+	wfClient := dynClient.Resource(workflowGVR).Namespace(namespace)
+
+	workflow := &unstructured.Unstructured{
+		Object: map[string]interface{}{
+			"apiVersion": "argoproj.io/v1alpha1",
+			"kind":       "Workflow",
+			"metadata": map[string]interface{}{
+				"generateName": "hello-world-",
+			},
+			"spec": map[string]interface{}{
+				"entrypoint": "whalesay",
+				"templates": []interface{}{
+					map[string]interface{}{
+						"name": "whalesay",
+						"container": map[string]interface{}{
+							"image":   "docker/whalesay:latest",
+							"command": []string{"cowsay", "hello world"},
+						},
 					},
 				},
 			},
 		},
 	}
-)
 
-func main() {
-	// get current user to determine home directory
-	usr, err := user.Current()
+	ctx := context.Background()
+	createdWf, err := wfClient.Create(ctx, workflow, metav1.CreateOptions{})
 	checkErr(err)
+	fmt.Printf("Workflow %s submitted\n", createdWf.GetName())
 
-	// get kubeconfig file location
-	kubeconfig := flag.String("kubeconfig", filepath.Join(usr.HomeDir, ".kube", "configs"), "(optional) absolute path to the kubeconfig file")
-	flag.Parse()
-
-	// use the current context in kubeconfig
-	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
+	timeout := int64(300)
+	watcher, err := wfClient.Watch(ctx, metav1.ListOptions{
+		FieldSelector:  "metadata.name=" + createdWf.GetName(),
+		TimeoutSeconds: &timeout,
+	})
 	checkErr(err)
-	namespace := "default"
+	defer watcher.Stop()
 
-	// create the workflow client
-	wfClient := wfclientset.NewForConfigOrDie(config).ArgoprojV1alpha1().Workflows(namespace)
-
-	// submit the hello world workflow
-	createdWf, err := wfClient.Create(&helloWorldWorkflow)
-	checkErr(err)
-	fmt.Printf("Workflow %s submitted\n", createdWf.Name)
-
-	// wait for the workflow to complete
-	fieldSelector := fields.ParseSelectorOrDie(fmt.Sprintf("metadata.name=%s", createdWf.Name))
-	watchIf, err := wfClient.Watch(metav1.ListOptions{FieldSelector: fieldSelector.String()})
-	errors.CheckError(err)
-	defer watchIf.Stop()
-	for next := range watchIf.ResultChan() {
-		wf, ok := next.Object.(*wfv1.Workflow)
+	for event := range watcher.ResultChan() {
+		if event.Type == watch.Error {
+			fmt.Printf("watch error: %v\n", event.Object)
+			break
+		}
+		obj, ok := event.Object.(*unstructured.Unstructured)
 		if !ok {
 			continue
 		}
-		if !wf.Status.FinishedAt.IsZero() {
-			fmt.Printf("Workflow %s %s at %v\n", wf.Name, wf.Status.Phase, wf.Status.FinishedAt)
+		finishedAt, found, _ := unstructured.NestedString(obj.Object, "status", "finishedAt")
+		phase, _, _ := unstructured.NestedString(obj.Object, "status", "phase")
+		if found && finishedAt != "" {
+			fmt.Printf("Workflow %s %s at %v\n", obj.GetName(), phase, finishedAt)
+			break
+		}
+		if phase == "Succeeded" || phase == "Failed" || phase == "Error" {
+			fmt.Printf("Workflow %s %s\n", obj.GetName(), phase)
 			break
 		}
 	}

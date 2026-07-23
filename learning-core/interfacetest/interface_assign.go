@@ -1,4 +1,4 @@
-package main
+package interfacetest
 
 // 接口赋值
 // 将对象实例赋值给接口；

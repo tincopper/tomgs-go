@@ -1,4 +1,4 @@
-package main
+package dag
 
 //图结构
 type DAG struct {
